@@ -28,32 +28,19 @@ void init_variable_table(variable_table* ptr_table)
     }
 }
 
-
 int find_variable_by_name(variable_table* ptr_table, const char* name_of_variable)
 {
     assert(ptr_table        != NULL);
     assert(name_of_variable != NULL);
 
-    printf("DEBUG find_variable_by_name: looking for '%s'\n", name_of_variable);
-    printf("DEBUG find_variable_by_name: number_of_variables = %d\n", ptr_table->number_of_variables);
-
     for (int i = 0; i < ptr_table->number_of_variables; i++)
     {
-        printf("DEBUG find_variable_by_name: table[%d] = '%s' (strcmp result: %d)\n",
-               i, ptr_table->variables[i].name,
-               strcmp(ptr_table->variables[i].name, name_of_variable));
-
         if (strcmp(ptr_table->variables[i].name, name_of_variable) == 0)
-        {
-            printf("DEBUG find_variable_by_name: found at index %d\n", i);
             return i;
-        }
     }
 
-    printf("DEBUG find_variable_by_name: variable not found\n");
     return OPERATION_FAILED;
 }
-
 
 int find_variable_by_hash(variable_table* ptr_table, size_t hash, const char* name_of_variable)
 {
@@ -102,117 +89,71 @@ int find_variable_by_hash(variable_table* ptr_table, size_t hash, const char* na
     return OPERATION_FAILED;
 }
 
-
 tree_error_type add_variable(variable_table* ptr_table, const char* name_of_variable)
 {
     if (ptr_table == NULL || name_of_variable == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    printf("DEBUG add_variable: adding variable '%s'\n", name_of_variable);
-    printf("DEBUG add_variable: current number_of_variables = %d\n", ptr_table->number_of_variables);
-
-    if (ptr_table->number_of_variables >= MAX_NUMBER_OF_VARIABLES)
-    {
-        printf("DEBUG add_variable: table full\n");
+    if (ptr_table -> number_of_variables >= MAX_NUMBER_OF_VARIABLES)
         return TREE_ERROR_VARIABLE_TABLE;
-    }
 
     if (find_variable_by_name(ptr_table, name_of_variable) != OPERATION_FAILED)
-    {
-        printf("DEBUG add_variable: variable already exists\n");
         return TREE_ERROR_REDEFINITION_VARIABLE;
-    }
 
-    int index = ptr_table->number_of_variables;
+    int index = ptr_table -> number_of_variables;
 
-    // Копируем имя переменной
-    strncpy(ptr_table->variables[index].name, name_of_variable, MAX_VARIABLE_LENGTH - 1);
-    ptr_table->variables[index].name[MAX_VARIABLE_LENGTH - 1] = '\0';
+    strncpy(ptr_table -> variables[index].name, name_of_variable, MAX_VARIABLE_LENGTH - 1);
+    ptr_table -> variables[index].name[MAX_VARIABLE_LENGTH - 1] = '\0';
 
-    ptr_table->variables[index].value = 0.0;
-    ptr_table->variables[index].hash = compute_hash(name_of_variable);
-    ptr_table->variables[index].is_defined = false; // Устанавливаем в false, значение еще не задано
+    ptr_table -> variables[index].value = 0.0;
+    ptr_table -> variables[index].hash = compute_hash(name_of_variable);
+    ptr_table -> variables[index].is_defined = false;
 
-    ptr_table->number_of_variables++;
-    ptr_table->is_sorted = false;
-
-    printf("DEBUG add_variable: added variable '%s' at index %d\n",
-           ptr_table->variables[index].name, index);
-    printf("DEBUG add_variable: new number_of_variables = %d\n", ptr_table->number_of_variables);
+    ptr_table -> number_of_variables++;
+    ptr_table -> is_sorted = false;
 
     return TREE_ERROR_NO;
 }
-
 
 tree_error_type set_variable_value(variable_table* ptr_table, const char* name_of_variable, double value)
 {
     if (ptr_table == NULL || name_of_variable == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    printf("DEBUG set_variable_value: start for variable '%s'\n", name_of_variable);
-    printf("DEBUG set_variable_value: ptr_table = %p\n", ptr_table);
-    printf("DEBUG set_variable_value: number_of_variables = %d\n", ptr_table->number_of_variables);
-
-    // Выводим всю таблицу для отладки
-    printf("DEBUG set_variable_value: current table state:\n");
-    for (int i = 0; i < ptr_table->number_of_variables; i++)
-    {
-        printf("  [%d] name='%s', value=%.6f, is_defined=%d\n",
-               i, ptr_table->variables[i].name, ptr_table->variables[i].value, ptr_table->variables[i].is_defined);
-    }
-
     int index = find_variable_by_name(ptr_table, name_of_variable);
     if (index == OPERATION_FAILED)
-    {
-        printf("DEBUG set_variable_value: variable '%s' not found in table\n", name_of_variable);
         return TREE_ERROR_VARIABLE_NOT_FOUND;
-    }
 
-    printf("DEBUG set_variable_value: variable found at index %d\n", index);
-    ptr_table->variables[index].value = value;
-    ptr_table->variables[index].is_defined = true;
+    ptr_table -> variables[index].value = value;
+    ptr_table -> variables[index].is_defined = true;
 
-    printf("DEBUG set_variable_value: set value to %.6f\n", value);
     return TREE_ERROR_NO;
 }
-
 
 tree_error_type get_variable_value(variable_table* ptr_table, const char* name_of_variable, double* value)
 {
     if (ptr_table == NULL || name_of_variable == NULL || value == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    printf("DEBUG get_variable_value: looking for variable '%s'\n", name_of_variable);
-
     int index = find_variable_by_name(ptr_table, name_of_variable);
 
     if (index == OPERATION_FAILED)
-    {
-        printf("DEBUG get_variable_value: variable not found\n");
         return TREE_ERROR_VARIABLE_NOT_FOUND;
-    }
 
     if (!ptr_table -> variables[index].is_defined)
-    {
-        printf("DEBUG get_variable_value: variable found but undefined\n");
         return TREE_ERROR_VARIABLE_UNDEFINED;
-    }
 
     *value = ptr_table -> variables[index].value;
-    printf("DEBUG get_variable_value: variable found, value = %f\n", *value);
     return TREE_ERROR_NO;
 }
-
 
 tree_error_type request_variable_value(variable_table* ptr_table, const char* variable_name)
 {
     if (ptr_table == NULL || variable_name == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    printf("DEBUG request_variable_value: start for variable '%s'\n", variable_name);
-
     printf("Enter a value for the variable '%s': ", variable_name);
-    fflush(stdout);  // Важно: сбрасываем буфер вывода
+    fflush(stdout);
 
     double value = 0.0;
 
@@ -225,14 +166,9 @@ tree_error_type request_variable_value(variable_table* ptr_table, const char* va
 
     clear_input_buffer();
 
-    printf("DEBUG request_variable_value: read value %f\n", value);
-
     tree_error_type result = set_variable_value(ptr_table, variable_name, value);
-    printf("DEBUG request_variable_value: set_variable_value returned %d\n", result);
-
     return result;
 }
-
 
 void sort_variable_table(variable_table* ptr_table)
 {
@@ -245,7 +181,6 @@ void sort_variable_table(variable_table* ptr_table)
     }
 }
 
-
 int compare_variables_by_hash(const void* first_var, const void* second_var)
 {
     const variable_t* varA = (const variable_t*)first_var;
@@ -256,7 +191,6 @@ int compare_variables_by_hash(const void* first_var, const void* second_var)
 
     return strcmp(varA -> name, varB -> name);
 }
-
 
 void destroy_variable_table(variable_table* ptr_table)
 {
@@ -271,4 +205,3 @@ void destroy_variable_table(variable_table* ptr_table)
     ptr_table -> number_of_variables = 0;
     ptr_table -> is_sorted = true;
 }
-

@@ -45,11 +45,11 @@ const char* node_data_to_string(const node_t* node, char* buffer, size_t buffer_
             return buffer;
 
         case NODE_VAR:
-            if (node->data.var_definition.name != NULL)
-                snprintf(buffer, buffer_size, "%s", node->data.var_definition.name);
+            if (node -> data.var_definition.name != NULL)
+                snprintf(buffer, buffer_size, "%s", node -> data.var_definition.name);
             else
-                snprintf(buffer, buffer_size, "var_%zu", node->data.var_definition.hash);
-            
+                snprintf(buffer, buffer_size, "var_%zu", node -> data.var_definition.hash);
+
             return buffer;
 
         default:
