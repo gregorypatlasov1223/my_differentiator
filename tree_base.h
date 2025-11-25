@@ -26,7 +26,6 @@ bool is_leaf(node_t* node);
 tree_error_type tree_destroy_recursive(node_t* node);
 tree_error_type tree_constructor(tree_t* tree);
 tree_error_type tree_destructor(tree_t* tree);
-node_t* create_node_from_token(const char* token, node_type type, node_t* parent);
 size_t compute_hash(const char* string);
 void clear_input_buffer();
 

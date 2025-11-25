@@ -7,7 +7,9 @@
 #include "dump.h"
 #include "io_diff.h"
 #include "tree_base.h"
+#include "operations.h"
 #include "tree_common.h"
+
 
 void init_load_progress(load_progress* progress)
 {
@@ -162,9 +164,7 @@ node_t* read_node_from_buffer(tree_t* tree, char* buffer, size_t buffer_length, 
     if (string_ptr == NULL)
         return NULL;
 
-    node_type type = determine_node_type(string_ptr);
-    node_t* node = create_node_from_token(string_ptr, type, parent);
-
+    node_t* node = create_node_from_token(string_ptr, parent);
     free(string_ptr);
 
     if (node == NULL)

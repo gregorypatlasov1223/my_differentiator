@@ -17,7 +17,8 @@
 #define ZERO_RANK 0
 
 const char* const DEFAULT_DATA_BASE_FILENAME = "differenciator_tree.txt";
-const int MAX_LENGTH_OF_TEX_EXPRESSION = 8192;
+const int MAX_LENGTH_OF_TEX_EXPRESSION       = 8192;
+const int MAX_NUMBER_OF_DERIVATIVE           = 4;
 
 
 enum node_type

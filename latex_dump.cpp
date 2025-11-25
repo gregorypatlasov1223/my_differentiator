@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <string.h>
 
 #include "latex_dump.h"
@@ -227,7 +228,7 @@ tree_error_type generate_latex_dump_with_derivatives(tree_t* tree, tree_t** deri
         }
     }
 
-    error = dump_variable_table(file, var_table)
+    error = dump_variable_table(file, var_table);
     if (error != TREE_ERROR_NO && error != TREE_ERROR_NO_VARIABLES)
     {
         fclose(file);
