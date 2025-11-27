@@ -1,6 +1,11 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{breqn}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+\allowdisplaybreaks
 \begin{document}
 
 \section*{Mathematical Expression Analysis}
@@ -8,139 +13,58 @@
 \section*{Mathematical Expression}
 
 Expression:
-\begin{multline*}
-\sin(x) \cdot 6.00 + \\
-\cos(y)
-\end{multline*}
+\begin{dmath*}
+\sin(x) \cdot 6.00 + \cos(y)
+\end{dmath*}
 
 Result:
-\[ 1.000000 \]
+\begin{dmath*}
+1.000000
+\end{dmath*}
 
 \subsection*{Derivative of Order 1}
 Derivative expression:
-\begin{multline*}
-f'(x) = \sin(x) \cdot 0.00 + \\
-6.00 \cdot \cos(x) \cdot 1.00 + \\
--1.00 \cdot \sin(y) \cdot 0.00
-\end{multline*}
+\begin{dmath*}
+f'(x) = \sin(x) \cdot 0.00 + 6.00 \cdot \cos(x) \cdot 1.00 + -1.00 \cdot \sin(y) \cdot 0.00
+\end{dmath*}
 
-Value of derivative at point: \[ f'(x) = 6.000000 \]
+Value of derivative at point:
+\begin{dmath*}
+f'(x) = 6.000000
+\end{dmath*}
 
 \subsection*{Derivative of Order 2}
 Derivative expression:
-\begin{multline*}
-f''(x) = \sin(x) \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 1.00 + \\
-6.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
--1.00 \cdot \sin(y) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \cos(y) \cdot 0.00 + \\
-\sin(y) \cdot 0.00
-\end{multline*}
+\begin{dmath*}
+f''(x) = \sin(x) \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 1.00 + 6.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + \cos(x) \cdot 1.00 \cdot 0.00 + -1.00 \cdot \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00
+\end{dmath*}
 
-Value of derivative at point: \[ f''(x) = 0.000000 \]
+Value of derivative at point:
+\begin{dmath*}
+f''(x) = 0.000000
+\end{dmath*}
 
 \subsection*{Derivative of Order 3}
 Derivative expression:
-\begin{multline*}
-f'''(x) = \sin(x) \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 1.00 + \\
-0.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
-6.00 \cdot \cos(x) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 + \\
--1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \\
-\cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
--1.00 \cdot \sin(y) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \cos(y) \cdot 0.00 + \\
-\sin(y) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \cos(y) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \sin(y) \cdot 0.00 + \\
-\cos(y) \cdot 0.00 \cdot 0.00 + \\
-\sin(y) \cdot 0.00 + \\
-0.00 \cdot \cos(y) \cdot 0.00 + \\
--1.00 \cdot \cos(y) \cdot 0.00 + \\
-\sin(y) \cdot 0.00 \cdot 0.00
-\end{multline*}
+\begin{dmath*}
+f'''(x) = \sin(x) \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 1.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + \cos(x) \cdot 1.00 \cdot 0.00 + 6.00 \cdot \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + -1.00 \cdot \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 + -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 \cdot 0.00
+\end{dmath*}
 
-Value of derivative at point: \[ f'''(x) = -6.000000 \]
+Value of derivative at point:
+\begin{dmath*}
+f'''(x) = -6.000000
+\end{dmath*}
 
 \subsection*{Derivative of Order 4}
 Derivative expression:
-\begin{multline*}
-f^{(4)}(x) = \sin(x) \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 1.00 + \\
-0.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 + \\
--1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \\
-\cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-6.00 \cdot \cos(x) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 + \\
--1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 0.00 + \\
-0.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \sin(x) \cdot 1.00 + \\
-\cos(x) \cdot 1.00 \cdot 0.00 + \\
-\sin(x) \cdot 0.00 + \\
-0.00 \cdot \cos(x) \cdot 1.00 + \\
--1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 \cdot 0.00 + \\
--1.00 \cdot \sin(x) \cdot 0.00 + \\
-1.00 \cdot - \\
-1.00 \cdot \cos(x) \cdot 1.00 + \\
-\sin(x) \cdot 0.00 \cdot 0.00 + \\
--1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 +\sin(x) \cdot 0.00 +\cos(x) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 +\sin(x) \cdot 0.00 +-1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 \cdot 0.00 +\cos(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 +0.00 \cdot \cos(x) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 +\sin(x) \cdot 0.00 +-1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 +\cos(x) \cdot 1.00 \cdot 0.00 +0.00 \cdot \cos(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 +0.00 \cdot \cos(x) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 +\sin(x) \cdot 0.00 +-1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 +\cos(x) \cdot 0.00 +1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 +-1.00 \cdot \sin(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 +\sin(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +\cos(y) \cdot 0.00 \cdot 0.00 +\sin(y) \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00 +-1.00 \cdot \cos(y) \cdot 0.00 +\sin(y) \cdot 0.00 \cdot 0.00 +0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 +\sin(y) \cdot 0.00 +-1.00 \cdot \sin(y) \cdot 0.00 \cdot 0.00 +\cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 \cdot 0.00 +\cos(y) \cdot 0.00 \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +\sin(y) \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +\cos(y) \cdot 0.00 \cdot 0.00 +-1.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +\cos(y) \cdot 0.00 \cdot 0.00 +\sin(y) \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00 \cdot 0.00 +-1.00 \cdot \cos(y) \cdot 0.00 +\sin(y) \cdot 0.00 \cdot 0.00 +0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 +0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 +\cos(y) \cdot 0.00 \cdot 0.00 +\sin(y) \cdot 0.00 +0.00 \cdot \cos(y) \cdot 0.00
-\end{multline*}
+\begin{dmath*}
+f^{(4)}(x) = \sin(x) \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 1.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + \cos(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 6.00 \cdot \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + \cos(x) \cdot 1.00 \cdot 0.00 + \sin(x) \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 1.00 + -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 \cdot 0.00 + \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 1.00 \cdot 0.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 0.00 \cdot \cos(x) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \cos(x) \cdot 1.00 + \sin(x) \cdot 0.00 + -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + \cos(x) \cdot 0.00 + 1.00 \cdot -1.00 \cdot \sin(x) \cdot 1.00 \cdot 0.00 + -1.00 \cdot \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 + -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 + -1.00 \cdot \sin(y) \cdot 0.00 \cdot 0.00 + \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + -1.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00 \cdot 0.00 + -1.00 \cdot \cos(y) \cdot 0.00 + \sin(y) \cdot 0.00 \cdot 0.00 + 0.00 \cdot -1.00 \cdot \cos(y) \cdot 0.00 + 0.00 \cdot -1.00 \cdot \sin(y) \cdot 0.00 + \cos(y) \cdot 0.00 \cdot 0.00 + \sin(y) \cdot 0.00 + 0.00 \cdot \cos(y) \cdot 0.00
+\end{dmath*}
 
-Value of derivative at point: \[ f^{(4)}(x) = 0.000000 \]
+Value of derivative at point:
+\begin{dmath*}
+f^{(4)}(x) = 0.000000
+\end{dmath*}
 
 \section*{Variables}
 \begin{tabular}{|c|c|}

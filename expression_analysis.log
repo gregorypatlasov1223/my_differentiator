@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 23:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
 \c@section=\count188
@@ -96,256 +96,315 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/breqn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-01-22 L3 programming layer (loader) 
+
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count273
 \l__pdf_internal_box=\box53
+))
+Package: breqn 2021/10/28 v0.98l Breaking equations
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
 )
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+)
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/flexisym.sty
+Package: flexisym 2021/10/28 v0.98l Make math characters macros
+LaTeX Info: Redefining \textprime on input line 299.
+LaTeX Info: Redefining \not on input line 357.
+
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/cmbase.sym
+File: cmbase.sym 2007/12/19 v0.92
+LaTeX Info: Redefining \hbar on input line 324.
+LaTeX Info: Redefining \surd on input line 326.
+LaTeX Info: Redefining \angle on input line 334.
+LaTeX Info: Redefining \neq on input line 335.
+LaTeX Info: Redefining \mapsto on input line 336.
+LaTeX Info: Redefining \cong on input line 337.
+LaTeX Info: Redefining \notin on input line 340.
+LaTeX Info: Redefining \rightleftharpoons on input line 341.
+LaTeX Info: Redefining \doteq on input line 342.
+LaTeX Info: Redefining \hookrightarrow on input line 343.
+LaTeX Info: Redefining \hookleftarrow on input line 344.
+LaTeX Info: Redefining \bowtie on input line 345.
+LaTeX Info: Redefining \models on input line 346.
+LaTeX Info: Redefining \Longrightarrow on input line 347.
+LaTeX Info: Redefining \longrightarrow on input line 348.
+LaTeX Info: Redefining \Longleftarrow on input line 349.
+LaTeX Info: Redefining \longleftarrow on input line 350.
+LaTeX Info: Redefining \longmapsto on input line 351.
+LaTeX Info: Redefining \longleftrightarrow on input line 352.
+LaTeX Info: Redefining \Longleftrightarrow on input line 353.
+LaTeX Info: Redefining \cdots on input line 357.
+LaTeX Info: Redefining \vdots on input line 360.
+LaTeX Info: Redefining \ddots on input line 365.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/mathstyle.sty
+Package: mathstyle 2021/10/28 v0.98l Tracking mathstyle implicitly
+LaTeX Info: Redefining \displaystyle on input line 95.
+LaTeX Info: Redefining \textstyle on input line 97.
+LaTeX Info: Redefining \scriptstyle on input line 99.
+LaTeX Info: Redefining \scriptscriptstyle on input line 101.
+LaTeX Info: Redefining \genfrac on input line 149.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count274
+\calc@Bcount=\count275
+\calc@Adimen=\dimen152
+\calc@Bdimen=\dimen153
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count276
+\calc@Cskip=\skip55
+)
+\inf@bad=\count277
+\maxint=\count278
+\listwidth=\dimen154
+\eqnumsep=\dimen155
+\eqmargin=\dimen156
+\eqlinespacing=\skip56
+\eqlineskip=\skip57
+\eqlineskiplimit=\dimen157
+\eqbinoffset=\muskip17
+\eqdelimoffset=\muskip18
+\eqindentstep=\dimen158
+\eqstyle=\toks25
+\eqbreakdepth=\count279
+\eqinterlinepenalty=\count280
+\intereqpenalty=\count281
+\intereqskip=\skip58
+\prerelpenalty=\count282
+\prebinoppenalty=\count283
+\Dmedmuskip=\muskip19
+\Dthickmuskip=\muskip20
+\eqleftskip=\skip59
+\eqrightskip=\skip60
+\eq@vspan=\skip61
+\eq@binoffset=\muskip21
+\EQ@box=\box54
+\EQ@copy=\box55
+\EQ@numbox=\box56
+\eq@wdNum=\dimen159
+\GRP@numbox=\box57
+\grp@wdNum=\dimen160
+\eq@lines=\count284
+\eq@curline=\count285
+\eq@badness=\count286
+\EQ@vims=\count287
+\eq@dp=\dimen161
+\eq@wdL=\dimen162
+\eq@wdT=\dimen163
+\eq@wdMin=\dimen164
+\grp@wdL=\dimen165
+\grp@wdR=\dimen166
+\grp@wdT=\dimen167
+\eq@wdRmax=\dimen168
+\eq@firstht=\dimen169
+\eq@wdCond=\dimen170
+\eq@indentstep=\dimen171
+\eq@linewidth=\dimen172
+\grp@linewidth=\dimen173
+\eq@hshift=\dimen174
+\eq@given@sidespace=\dimen175
+\mathindent=\dimen176
+\eq@final@linecount=\count288
+\eq@wdR=\dimen177
+\EQ@continue=\toks26
+\lr@level=\count289
+\GRP@queue=\toks27
+\GRP@box=\box58
+\GRP@wholebox=\box59
+\darraycolsep=\skip62
+\cur@row=\count290
+\cur@col=\count291
+\conditionsep=\skip63
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count292
+\Gm@cntv=\count293
+\c@Gm@tempcnt=\count294
+\Gm@bindingoffset=\dimen178
+\Gm@wd@mp=\dimen179
+\Gm@odd@mp=\dimen180
+\Gm@even@mp=\dimen181
+\Gm@layoutwidth=\dimen182
+\Gm@layoutheight=\dimen183
+\Gm@layouthoffset=\dimen184
+\Gm@layoutvoffset=\dimen185
+\Gm@dimlist=\toks28
+)
+(/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count295
+))
 (./expression_analysis.aux)
 \openout1 = `expression_analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
- [1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \vbox (12.05835pt too high) has occurred while \output is active []
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count296
+\scratchdimen=\dimen186
+\scratchbox=\box60
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen187
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks30
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 652.70622pt, 71.13188pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=472.03123pt
+* \textheight=652.70622pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[2]
-Overfull \hbox (5429.42084pt too wide) detected at line 141
- []$[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 
-00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) 
-\OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS
-/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/
-cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/c
-mm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm
-/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it
-/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/1
-0 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10
- ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^
-A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 x
-\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
-cmr/m/n/10 00 + [](\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT
-1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cm
-r/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr
-/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m
-/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10
- 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/
-n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\
-OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OM
-S/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS
-/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cm
-sy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/c
-mm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/
-it/10 :\OT1/cmr/m/n/10 00 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/
-10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
- x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT
-1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cm
-r/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/
-n/10 00 + [](\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/
-m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/
-10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/1
-0 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 
-) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \O
-MS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OM
-L/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/
-cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m
-/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/
-n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n
-/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
- ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 
-:\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :
-\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\O
-T1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cm
-r/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT
-1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m
-/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 x\OT1/cmr/m/n
-/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0
-0 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \
-OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS
-/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cms
-y/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cm
-m/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/i
-t/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10
- :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^
-^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A 
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1
-/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/
-cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cm
-r/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n
-/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/
-m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/1
-0 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00
- \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 
-\OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OM
-S/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML
-/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/
-cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cm
-m/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/i
-t/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/
-10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/1
-0 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^
-^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 
-x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1
-/cmr/m/n/10 00 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cm
-r/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/
-m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/1
-0 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00
- + [](\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 
-0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \
-OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \O
-MS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/
-cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy
-/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + \OMS/cmsy/m
-/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10
- ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^
-A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\O
-T1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT
-1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/
-cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m
-/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr
-/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n
-/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/
-10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10
- ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 +
- 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 
-1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\
-OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/c
-mm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cm
-sy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m
-/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m
-/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/1
-0 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 
-^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A
- \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + \OMS/cmsy/m/n/10 ^^@\O
-T1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1
-/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/
-m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/
-n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 
-00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 +
- 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 
-1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\
-OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/c
-mm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cms
-y/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy
-/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/
-n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it
-/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/
-10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
- y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT
-1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^
-@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\
-OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/c
-mr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr
-/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/
-10 00 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 
-00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) 
-\OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS
-/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OM
-L/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm
-/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/
-m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m
-/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/
-10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^
-^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 
-y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1
-/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr
-/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m
-/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/1
-0 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10
- 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )
- \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [
-](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OM
-L/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/
-cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cms
-y/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/
-m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/
-it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10
- :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^
-^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^
-A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \
-OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT
-1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr
-/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n
-/10 00 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10
- 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )
- \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0
-\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\
-OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OM
-L/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm
-/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy
-/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n
-/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/i
-t/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 
-:\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^
-A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \
-OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/
-cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + \OMS/cmsy/m/n/10 ^^@\OT1/cmr
-/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m
-/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10
- 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )
- \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OM
-S/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML
-/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/
-cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cm
-m/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/i
-t/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/
-10 ^^A ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 \OMS/cmsy/m/n/1
-0 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^
-^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + [](\OML/cmm/m/it/10 
-y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1
-/cmr/m/n/10 00 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr
-/m/n/10 00 + [](\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/c
-mr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 00 + 0\OML/cmm/m/it/10 :\OT1/cmr/m
-/n/10 00 \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n
-/10 ) \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0
-0  $ 
- []
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
 
-[3]
-Overfull \vbox (237.05835pt too high) has occurred while \output is active []
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
 
 
-[4] [5] (./expression_analysis.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./expression_analysis
+.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1179 strings out of 476182
- 18283 string characters out of 5795594
- 1945975 words of memory out of 5000000
- 23239 multiletter control sequences out of 15000+600000
- 559733 words of font info for 42 fonts, out of 8000000 for 9000
+ 4676 strings out of 476182
+ 68157 string characters out of 5795594
+ 1976975 words of memory out of 5000000
+ 26628 multiletter control sequences out of 15000+600000
+ 563925 words of font info for 58 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,7n,65p,2390b,121s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,6n,85p,3738b,177s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on expression_analysis.pdf (5 pages, 67884 bytes).
+fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on expression_analysis.pdf (2 pages, 66354 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 41 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

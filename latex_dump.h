@@ -5,15 +5,15 @@
 #include "variable_parse.h"
 
 
-const int MAX_PARTS = 50;
+// const int MAX_PARTS = 50;
 
 
-int is_binary_operator(const char* expression, int i, int length);
-void add_part(char** parts, int* part_count, const char* expression, int start, int end);
-int split_by_operators(const char* expression, char** parts, int* part_count,
-                      const char* operators);
-char** split_expression(const char* expression, int* part_count);
-void free_parts(char** parts, int part_count);
+// int is_binary_operator(const char* expression, int i, int length);
+// void add_part(char** parts, int* part_count, const char* expression, int start, int end);
+// int split_by_operators(const char* expression, char** parts, int* part_count,
+//                       const char* operators);
+// char** split_expression(const char* expression, int* part_count);
+// void free_parts(char** parts, int part_count);
 void tree_to_string_simple(node_t* node, char* buffer, size_t* position, int buffer_size);
 tree_error_type dump_original_function(FILE* file, tree_t* tree, double result_value);
 tree_error_type dump_derivative(FILE* file, tree_t* derivative_tree, double derivative_result, int derivative_order);
