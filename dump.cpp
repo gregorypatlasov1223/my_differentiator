@@ -37,6 +37,9 @@ const char* node_data_to_string(const node_t* node, char* buffer, size_t buffer_
                 case OP_DIV: return "/";
                 case OP_SIN: return "sin";
                 case OP_COS: return "cos";
+                case OP_LN:  return "ln";
+                case OP_EXP: return "exp";
+                case OP_POW: return "^";
                 default: return "UNKNOWN_OP";
             }
 
@@ -236,12 +239,15 @@ const char* get_node_color(node_t* node, tree_t* tree)
     {
         switch (node -> data.op_value)
         {
-            case OP_ADD: return "lightblue";     // + - голубой
+             case OP_ADD: return "lightblue";     // + - голубой
             case OP_SUB: return "lightpink";     // - - розовый
             case OP_MUL: return "lightsalmon";   // * - оранжевый
             case OP_DIV: return "plum";          // / - фиолетовый
             case OP_SIN: return "lightseagreen";
             case OP_COS: return "mediumpurple";
+            case OP_POW: return "orange";
+            case OP_LN:  return "brown";
+            case OP_EXP: return "darkgreen";
             default:     return "lightgrey";
         }
     }

@@ -18,6 +18,7 @@
 
 const char* const DEFAULT_DATA_BASE_FILENAME = "differenciator_tree.txt";
 const int MAX_LENGTH_OF_TEX_EXPRESSION       = 8192;
+const int MAX_TEX_DESCRIPTION_LENGTH         = 256;
 const int MAX_NUMBER_OF_DERIVATIVE           = 4;
 
 
@@ -36,12 +37,22 @@ enum operation_type
     OP_DIV,
     OP_SIN,
     OP_COS,
+    OP_POW,
+    OP_LN,
+    OP_EXP
 };
 
 struct variable_definition
 {
     char* name;
     size_t hash;
+};
+
+struct operation_info
+{
+    unsigned int hash;
+    const char* name;
+    operation_type op_value;
 };
 
 union value_of_tree_element

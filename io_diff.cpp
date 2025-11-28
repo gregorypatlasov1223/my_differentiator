@@ -30,7 +30,16 @@ void add_node_to_load_progress(load_progress* progress, node_t* node, size_t dep
     if (progress -> size >= progress -> capacity)
     {
         size_t new_capacity = progress -> capacity * COEFFICIENT;
-        progress -> items = (node_depth_info*)realloc(progress -> items, new_capacity * sizeof(node_depth_info));
+        node_depth_info* new_items = (node_depth_info*)realloc(progress -> items, new_capacity * sizeof(node_depth_info));
+
+        if (new_items == NULL)
+        {
+            fprintf(stderr, "Error: Failed to reallocate memory in add_node_to_load_progress\n");
+            return;
+        }
+
+        progress -> items = new_items;
+        progress -> capacity = new_capacity;
     }
 
     progress -> items[progress -> size].node = node;

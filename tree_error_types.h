@@ -30,7 +30,8 @@ enum tree_error_type
     TREE_ERROR_INVALID_INPUT         = 13,
     TREE_ERROR_DIVISION_BY_ZERO      = 14,
     TREE_ERROR_UNKNOWN_OPERATION     = 15,
-    TREE_ERROR_NO_VARIABLES          = 16
+    TREE_ERROR_NO_VARIABLES          = 16,
+    TREE_ERROR_YCHI_MATAN            = 17
 };
 
 #endif // TREE_ERROR_TYPES_H_

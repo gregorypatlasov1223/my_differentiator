@@ -1,17 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "dump.h"
 #include "io_diff.h"
 #include "tree_base.h"
-#include "operations.h"
 #include "latex_dump.h"
+#include "operations.h"
 #include "tree_common.h"
-#include "variable_parse.h"
 #include "user_interface.h"
+#include "variable_parse.h"
 
-int main()
+int main(int argc, const char** argv)
 {
+    const char* input_file = get_data_base_filename(argc, argv);
+
     tree_t tree = {};
     tree_constructor(&tree);
 
@@ -23,104 +26,113 @@ int main()
     init_tree_log("differenciator_tree");
     init_tree_log("differentiator_parse");
 
-    tree_error_type error = tree_load(&tree, "differenciator_tree.txt");
+    tree_error_type error_loading = tree_load(&tree, input_file);
 
-    if (error == TREE_ERROR_NO)
+    FILE* tex_file = fopen("full_analysis.tex", "w");
+    if (!tex_file)
     {
-        printf("The tree has been uploaded successfully!\n");
+        printf("Error: failed to create file full_analysis.tex\n");
+        return 1;
+    }
+
+    start_latex_dump(tex_file);
+
+    if (error_loading == TREE_ERROR_NO)
+    {
         tree_common_dump(&tree);
 
-        printf("\nCALCULATING THE EXPRESSION\n");
-        tree_error_type mistake = evaluate_tree(&tree, &var_table, &result);
+        for (int i = 0; i < var_table.number_of_variables; i++)
+            request_variable_value(&var_table, var_table.variables[i].name);
 
-        if (mistake == TREE_ERROR_NO)
-        {
+        tree_error_type error = evaluate_tree(&tree, &var_table, &result);
+        if (error == TREE_ERROR_NO)
             printf("Calculation result: %.6f\n", result);
-        }
-        else
-        {
-            printf("Calculation error: %d\n", mistake);
-            print_tree_error(mistake);
-        }
 
-        printf("\nCALCULATING DERIVATIVES\n");
+        dump_original_function_to_file(tex_file, &tree, result);
 
-        tree_t derivative_trees[MAX_NUMBER_OF_DERIVATIVE]   = {};
-        double derivative_results[MAX_NUMBER_OF_DERIVATIVE] = {};
-        int    actual_derivative_count = 0;
+        dump_variable_table_to_file(tex_file, &var_table);
 
-        tree_t* current_tree = &tree;
-        for (int i = 0; i < MAX_NUMBER_OF_DERIVATIVE; i++)
-        {
-            tree_constructor(&derivative_trees[i]);
+        size_t size_before_optimization = count_tree_nodes(tree.root);
 
-            error = differentiate_tree(current_tree, "x", &derivative_trees[i]);
-            if (error != TREE_ERROR_NO)
-            {
-                printf("Error in calculating the derivative of the order %d: %d\n", i + 1, error);
-                tree_destructor(&derivative_trees[i]);
-                break;
-            }
-
-            printf("The derivative of order %d has been successfully calculated!\n", i + 1);
-            tree_common_dump(&derivative_trees[i]);
-
-            error = evaluate_tree(&derivative_trees[i], &var_table, &derivative_results[i]);
-            if (error == TREE_ERROR_NO)
-            {
-                printf("The value of the derivative of the order %d: %.6f\n", i + 1, derivative_results[i]);
-                actual_derivative_count++;
-            }
-            else
-            {
-                printf("Error in calculating the value of the derivative of the order %d\n", i + 1);
-                print_tree_error(error);
-                derivative_results[i] = 0.0;
-                actual_derivative_count++;
-            }
-
-            current_tree = &derivative_trees[i];
-        }
-
-        printf("\nLATEX DOCUMENT GENERATION\n");
-
-        if (actual_derivative_count > 0)
-        {
-            tree_t** derivative_trees_ptr = (tree_t**)calloc(actual_derivative_count, sizeof(tree_t*)); //массив указателей на деревья производных
-            for (int i = 0; i < actual_derivative_count; i++)
-                derivative_trees_ptr[i] = &derivative_trees[i];
-
-            error = generate_latex_dump_with_derivatives(&tree, derivative_trees_ptr, derivative_results,
-                                                   actual_derivative_count, &var_table,
-                                                   "expression_analysis.tex", result);
-
-            free(derivative_trees_ptr);
-        }
+        error = optimize_tree_with_dump(&tree, tex_file, &var_table);
 
         if (error == TREE_ERROR_NO)
         {
-            printf("The LaTeX document has been created successfully!\n");
-            if (actual_derivative_count > 0)
+            size_t size_after_optimization = count_tree_nodes(tree.root);
+            printf("Optimization: %zu -> %zu nodes\n",
+                   size_before_optimization, size_after_optimization);
+
+            if (size_before_optimization != size_after_optimization)
             {
-                printf("The document contains derivatives up to %d order\n", actual_derivative_count);
+                error = evaluate_tree(&tree, &var_table, &result);
+                if (error == TREE_ERROR_NO)
+                    printf("Result after optimization: %.6f\n", result);
+            }
+        }
+
+        fprintf(tex_file, "\\section*{Differentiation}\n");
+
+        char* diff_variable = select_differentiation_variable(&var_table);
+        if (diff_variable != NULL)
+        {
+            fprintf(tex_file, "Differentiation variable: \\[ %s \\]\n\n", diff_variable);
+
+            tree_t   derivative_trees[MAX_NUMBER_OF_DERIVATIVE] = {};
+            double derivative_results[MAX_NUMBER_OF_DERIVATIVE] = {};
+            int    actual_derivative_count = 0;
+
+            tree_t* current_tree = &tree;
+            for (int i = 0; i < MAX_NUMBER_OF_DERIVATIVE; i++)
+            {
+                tree_constructor(&derivative_trees[i]);
+
+                error = differentiate_tree(current_tree, diff_variable, &derivative_trees[i]);
+                if (error != TREE_ERROR_NO)
+                {
+                    tree_destructor(&derivative_trees[i]);
+                    break;
+                }
+
+                fprintf(tex_file, "\\subsection*{Optimization of derivative %d}\n", i + 1);
+                error = optimize_tree_with_dump(&derivative_trees[i], tex_file, &var_table);
+
+                error = evaluate_tree(&derivative_trees[i], &var_table, &derivative_results[i]);
+                if (error == TREE_ERROR_NO)
+                {
+                    printf("Derivative %d: %.6f\n", i + 1, derivative_results[i]);
+                    actual_derivative_count++;
+
+                    dump_derivative_to_file(tex_file, &derivative_trees[i], derivative_results[i], i + 1);
+                }
+
+                current_tree = &derivative_trees[i];
+                // if (i >= 2)
+                //     break;
+            }
+
+            free(diff_variable);
+
+            for (int i = 0; i < actual_derivative_count; i++)
+            {
+                tree_destructor(&derivative_trees[i]);
             }
         }
         else
         {
-            printf("Error creating a LaTeX document: %d\n", error);
-        }
-
-        for (int i = 0; i < actual_derivative_count; i++)
-        {
-            tree_destructor(&derivative_trees[i]);
+            fprintf(tex_file, "Failed to select variable for differentiation.\n\n");
         }
     }
     else
     {
-        printf("Error loading the tree: %d\n", error);
-        print_tree_error(error);
+        fprintf(tex_file, "\\section*{Error}\n");
+        fprintf(tex_file, "Failed to load tree from file: %s\n", input_file);
     }
 
+    end_latex_dump(tex_file);
+    fclose(tex_file);
+
+    printf("Full analysis saved to file: full_analysis.tex\n");
+    printf("To compile: pdflatex full_analysis.tex\n");
 
     close_tree_log("differenciator_tree");
     close_tree_log("differentiator_parse");

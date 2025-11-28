@@ -1,31 +1,143 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <string.h>
 
 #include "latex_dump.h"
-#include "tree_common.h"
 
-void tree_to_string_simple(node_t* node, char* buffer, size_t* position, int buffer_size)
+
+static void escape_latex_special_chars(const char* input, char* output, size_t output_size) {
+    if (input == NULL || output == NULL || output_size == 0) return;
+
+    size_t j = 0;
+    for (size_t i = 0; input[i] != '\0' && j < output_size - 1; i++) {
+        switch (input[i]) {
+            case '^':
+                // Обработка степеней в тексте - оборачиваем в математический режим
+                if (isdigit(input[i+1])) {
+                    // Найдена степень с цифрой - оборачиваем в $...$
+                    if (j + 3 < output_size - 1) {
+                        output[j++] = '$';
+                        output[j++] = '^';
+                        output[j++] = input[++i]; // Пропускаем ^ и берем цифру
+                        output[j++] = '$';
+                    }
+                } else {
+                    // Просто символ ^ без цифры - экранируем
+                    if (j + 2 < output_size - 1) {
+                        output[j++] = '\\';
+                        output[j++] = '^';
+                    }
+                }
+                break;
+            case '_':
+                // Нижнее подчеркивание нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '_';
+                }
+                break;
+            case '%':
+                // Процент нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '%';
+                }
+                break;
+            case '&':
+                // Амперсанд нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '&';
+                }
+                break;
+            case '#':
+                // Решетку нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '#';
+                }
+                break;
+            case '$':
+                // Доллар нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '$';
+                }
+                break;
+            case '\\':
+                // Обратный слеш нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '\\';
+                }
+                break;
+            case '~':
+                // Тильду нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '~';
+                }
+                break;
+            case '{':
+                // Фигурные скобки нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '{';
+                }
+                break;
+            case '}':
+                // Фигурные скобки нужно экранировать
+                if (j + 2 < output_size - 1) {
+                    output[j++] = '\\';
+                    output[j++] = '}';
+                }
+                break;
+            default:
+                // Обычный символ - просто копируем
+                output[j++] = input[i];
+                break;
+        }
+    }
+    output[j] = '\0';
+}
+
+/**
+ * @brief Создает безопасное для LaTeX описание
+ * @param description Исходное описание
+ * @return Указатель на статический буфер с безопасной строкой
+ */
+static const char* make_latex_safe_description(const char* description) {
+    static char safe_buffer[2 * MAX_TEX_DESCRIPTION_LENGTH];
+    escape_latex_special_chars(description, safe_buffer, sizeof(safe_buffer));
+    return safe_buffer;
+}
+
+
+void tree_to_string_simple(node_t* node, char* buffer, int* position, int buffer_size)
 {
-    assert(node != NULL);
+    if (node == NULL || *position >= buffer_size - 1)
+        return;
 
-    switch(node -> type)
+    switch (node -> type)
     {
         case NODE_NUM:
             *position += snprintf(buffer + *position, buffer_size - *position, "%.2f", node -> data.num_value);
             break;
 
         case NODE_VAR:
-            if (node -> data.var_definition.name != NULL)
+            if (node -> data.var_definition.name)
+            {
                 *position += snprintf(buffer + *position, buffer_size - *position, "%s", node -> data.var_definition.name);
+            }
             else
+            {
                 *position += snprintf(buffer + *position, buffer_size - *position, "?");
+            }
             break;
 
         case NODE_OP:
-            switch(node -> data.op_value)
+            switch (node -> data.op_value)
             {
                 case OP_ADD:
                     tree_to_string_simple(node -> left, buffer, position, buffer_size);
@@ -59,6 +171,23 @@ void tree_to_string_simple(node_t* node, char* buffer, size_t* position, int buf
                     tree_to_string_simple(node -> right, buffer, position, buffer_size);
                     *position += snprintf(buffer + *position, buffer_size - *position, ")");
                     break;
+                case OP_POW:
+                    *position += snprintf(buffer + *position, buffer_size - *position, "{");
+                    tree_to_string_simple(node -> left, buffer, position, buffer_size);
+                    *position += snprintf(buffer + *position, buffer_size - *position, "}^{");
+                    tree_to_string_simple(node -> right, buffer, position, buffer_size);
+                    *position += snprintf(buffer + *position, buffer_size - *position, "}");
+                    break;
+                case OP_LN:
+                    *position += snprintf(buffer + *position, buffer_size - *position, "\\ln(");
+                    tree_to_string_simple(node -> right, buffer, position, buffer_size);
+                    *position += snprintf(buffer + *position, buffer_size - *position, ")");
+                    break;
+                case OP_EXP:
+                    *position += snprintf(buffer + *position, buffer_size - *position, "e^{");
+                    tree_to_string_simple(node -> right, buffer, position, buffer_size);
+                    *position += snprintf(buffer + *position, buffer_size - *position, "}");
+                    break;
                 default:
                     *position += snprintf(buffer + *position, buffer_size - *position, "?");
             }
@@ -70,43 +199,86 @@ void tree_to_string_simple(node_t* node, char* buffer, size_t* position, int buf
 }
 
 
-tree_error_type dump_original_function(FILE* file, tree_t* tree, double result_value)
+tree_error_type start_latex_dump(FILE* file)
 {
-    if (file == NULL || tree == NULL)
+    if (file == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
-    size_t position = 0;
+    fprintf(file, "\\documentclass[12pt]{article}\n");
+    fprintf(file, "\\usepackage[utf8]{inputenc}\n");
+    fprintf(file, "\\usepackage{amsmath}\n");
+    fprintf(file, "\\usepackage{geometry}\n");
+    fprintf(file, "\\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}\n");
+    fprintf(file, "\\setlength{\\parindent}{0pt}\n");
+    fprintf(file, "\\setlength{\\parskip}{1em}\n");
+    fprintf(file, "\\begin{document}\n");
 
-    tree_to_string_simple(tree -> root, expression, &position, sizeof(expression));
-
-    fprintf(file, "\\section*{Mathematical Expression}\n\n");
-    fprintf(file, "Expression:\n");
-    fprintf(file, "\\begin{dmath*}\n");
-    fprintf(file, "%s\n", expression);
-    fprintf(file, "\\end{dmath*}\n\n");
-
-    fprintf(file, "Result:\n");
-    fprintf(file, "\\begin{dmath*}\n");
-    fprintf(file, "%.6f\n", result_value);
-    fprintf(file, "\\end{dmath*}\n\n");
+    fprintf(file, "\\section*{Mathematical Expression Analysis}\n\n");
 
     return TREE_ERROR_NO;
 }
 
 
-tree_error_type dump_derivative(FILE* file, tree_t* derivative_tree, double derivative_result, int derivative_order)
+tree_error_type end_latex_dump(FILE* file)
+{
+    if (file == NULL)
+        return TREE_ERROR_NULL_PTR;
+
+    fprintf(file, "\\end{document}\n");
+    return TREE_ERROR_NO;
+}
+
+
+tree_error_type dump_original_function_to_file(FILE* file, tree_t* tree, double result_value)
+{
+    if (file == NULL || tree == NULL)
+        return TREE_ERROR_NULL_PTR;
+
+    char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
+    int position = 0;
+    tree_to_string_simple(tree -> root, expression, &position, sizeof(expression));
+
+    fprintf(file, "\\subsection*{Original Expression}\n");
+    fprintf(file, "Expression: \\[ %s \\]\n\n", expression);
+    fprintf(file, "Evaluation result: \\[ %.6f \\]\n\n", result_value);
+
+    return TREE_ERROR_NO;
+}
+
+
+tree_error_type dump_optimization_step_to_file(FILE* file, const char* description, tree_t* tree, double result_value)
+{
+    if (file == NULL || description == NULL || tree == NULL)
+        return TREE_ERROR_NULL_PTR;
+
+    const char* safe_description = make_latex_safe_description(description);
+
+    fprintf(file, "\\subsubsection*{Optimization Step}\n");
+    fprintf(file, "It is easy to see that %s:\n\n", description);
+
+    char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {0};
+    int pos = 0;
+    tree_to_string_simple(tree->root, expression, &pos, sizeof(expression));
+
+    fprintf(file, "\\[ %s \\]\n\n", expression);
+    fprintf(file, "Result after simplification: \\[ %.6f \\]\n\n", result_value);
+    fprintf(file, "\\vspace{0.5em}\n");
+
+    return TREE_ERROR_NO;
+}
+
+
+tree_error_type dump_derivative_to_file(FILE* file, tree_t* derivative_tree, double derivative_result, int derivative_order)
 {
     if (file == NULL || derivative_tree == NULL)
         return TREE_ERROR_NULL_PTR;
 
-    char derivative_expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
-    size_t position = 0;
-
-    tree_to_string_simple(derivative_tree -> root, derivative_expression, &position, sizeof(derivative_expression));
+    char derivative_expr[MAX_LENGTH_OF_TEX_EXPRESSION] = {0};
+    int position = 0;
+    tree_to_string_simple(derivative_tree -> root, derivative_expr, &position, sizeof(derivative_expr));
 
     const char* derivative_notation = NULL;
-    char custom_notation[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
+    char custom_notation[32] = {0};
 
     if (derivative_order == 1)
     {
@@ -127,21 +299,14 @@ tree_error_type dump_derivative(FILE* file, tree_t* derivative_tree, double deri
     }
 
     fprintf(file, "\\subsection*{Derivative of Order %d}\n", derivative_order);
-    fprintf(file, "Derivative expression:\n");
-    fprintf(file, "\\begin{dmath*}\n");
-    fprintf(file, "%s = %s\n", derivative_notation, derivative_expression);
-    fprintf(file, "\\end{dmath*}\n\n");
-
-    fprintf(file, "Value of derivative at point:\n");
-    fprintf(file, "\\begin{dmath*}\n");
-    fprintf(file, "%s = %.6f\n", derivative_notation, derivative_result);
-    fprintf(file, "\\end{dmath*}\n\n");
+    fprintf(file, "Derivative: \\[ %s = %s \\]\n\n", derivative_notation, derivative_expr);
+    fprintf(file, "Value of derivative at point: \\[ %s = %.6f \\]\n\n", derivative_notation, derivative_result);
 
     return TREE_ERROR_NO;
 }
 
 
-tree_error_type dump_variable_table(FILE* file, variable_table* var_table)
+tree_error_type dump_variable_table_to_file(FILE* file, variable_table* var_table)
 {
     if (file == NULL || var_table == NULL)
         return TREE_ERROR_NULL_PTR;
@@ -149,7 +314,7 @@ tree_error_type dump_variable_table(FILE* file, variable_table* var_table)
     if (var_table -> number_of_variables <= 0)
         return TREE_ERROR_NO;
 
-    fprintf(file, "\\section*{Variables}\n");
+    fprintf(file, "\\section*{Variable Table}\n");
     fprintf(file, "\\begin{tabular}{|c|c|}\n");
     fprintf(file, "\\hline\n");
     fprintf(file, "Name & Value \\\\\n");
@@ -162,108 +327,6 @@ tree_error_type dump_variable_table(FILE* file, variable_table* var_table)
 
     fprintf(file, "\\hline\n");
     fprintf(file, "\\end{tabular}\n\n");
-
-    return TREE_ERROR_NO;
-}
-
-
-tree_error_type generate_latex_dump(tree_t* tree, variable_table* var_table, const char* filename, double result_value)
-{
-    if (tree == NULL || var_table == NULL || filename == NULL)
-        return TREE_ERROR_NULL_PTR;
-
-    FILE* file = fopen(filename, "w");
-    if (file == NULL)
-        return TREE_ERROR_IO;
-
-    fprintf(file, "\\documentclass[12pt]{article}\n");
-    fprintf(file, "\\usepackage[utf8]{inputenc}\n");
-    fprintf(file, "\\usepackage{amsmath}\n");
-    fprintf(file, "\\usepackage{amssymb}\n");
-    fprintf(file, "\\usepackage{breqn}\n");  // пакет для автоматического разбиения
-    fprintf(file, "\\usepackage[margin=2.5cm]{geometry}\n");
-    fprintf(file, "\\usepackage{parskip}\n");
-    fprintf(file, "\\begin{document}\n\n");
-
-    tree_error_type error = dump_original_function(file, tree, result_value);
-    if (error != TREE_ERROR_NO)
-    {
-        fclose(file);
-        return error;
-    }
-
-    error = dump_variable_table(file, var_table);
-    if (error != TREE_ERROR_NO && error != TREE_ERROR_NO_VARIABLES)
-    {
-        fclose(file);
-        return error;
-    }
-
-    fprintf(file, "\\end{document}\n");
-    fclose(file);
-
-    printf("Simple LaTeX file created: %s\n", filename);
-    printf("To compile: pdflatex %s\n", filename);
-
-    return TREE_ERROR_NO;
-}
-
-
-tree_error_type generate_latex_dump_with_derivatives(tree_t* tree, tree_t** derivative_trees, double* derivative_results,
-                                                    int derivative_count, variable_table* var_table,
-                                                    const char* filename, double result_value)
-{
-    assert(tree               != NULL);
-    assert(filename           != NULL);
-    assert(var_table          != NULL);
-    assert(derivative_trees   != NULL);
-    assert(derivative_results != NULL);
-
-    FILE* file = fopen(filename, "w");
-    if (file == NULL)
-        return TREE_ERROR_IO;
-
-    fprintf(file, "\\documentclass[12pt]{article}\n");
-    fprintf(file, "\\usepackage[utf8]{inputenc}\n");
-    fprintf(file, "\\usepackage{amsmath}\n");
-    fprintf(file, "\\usepackage{amssymb}\n");
-    fprintf(file, "\\usepackage{breqn}\n");  // пакет для автоматического разбиения
-    fprintf(file, "\\usepackage[margin=2.5cm]{geometry}\n");
-    fprintf(file, "\\usepackage{parskip}\n");
-    fprintf(file, "\\allowdisplaybreaks\n");  // разрешаем разрывы страниц внутри формул
-    fprintf(file, "\\begin{document}\n\n");
-
-    fprintf(file, "\\section*{Mathematical Expression Analysis}\n\n");
-
-    tree_error_type error = dump_original_function(file, tree, result_value);
-    if (error != TREE_ERROR_NO)
-    {
-        fclose(file);
-        return error;
-    }
-
-    for (int i = 0; i < derivative_count; i++)
-    {
-        error = dump_derivative(file, derivative_trees[i], derivative_results[i], i + 1);
-        if (error != TREE_ERROR_NO)
-        {
-            fclose(file);
-            return error;
-        }
-    }
-
-    error = dump_variable_table(file, var_table);
-    if (error != TREE_ERROR_NO && error != TREE_ERROR_NO_VARIABLES)
-    {
-        fclose(file);
-        return error;
-    }
-
-    fprintf(file, "\\end{document}\n");
-    fclose(file);
-
-    printf("LaTeX file with %d derivatives created: %s\n", derivative_count, filename);
-    printf("To compile: pdflatex %s\n", filename);
 
     return TREE_ERROR_NO;
 }

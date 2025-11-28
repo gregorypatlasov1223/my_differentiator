@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="main.cpp dump.cpp io_diff.cpp latex_dump.cpp operations.cpp tree_base.cpp user_interface.cpp variable_parse.cpp"
+files="main.cpp dump.cpp io_diff.cpp latex_dump.cpp logic_functions.cpp operations.cpp tree_base.cpp user_interface.cpp variable_parse.cpp"
 
 flags="-D _DEBUG -ggdb3 -std=c++17 -O0 -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations \
     -Wc++14-compat -Wmissing-declarations -Wcast-align -Wcast-qual -Wchar-subscripts \
