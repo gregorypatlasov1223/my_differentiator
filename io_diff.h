@@ -1,5 +1,5 @@
-#ifndef IO_DIFFERENCIATOR_H_
-#define IO_DIFFERENCIATOR_H_
+#ifndef IO_DIFF_H_
+#define IO_DIFF_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,17 +10,8 @@
 
 const int COEFFICIENT = 2;
 
-void init_load_progress(load_progress* progress);
-void add_node_to_load_progress(load_progress* progress, node_t* node, size_t depth);
-void free_load_progress(load_progress* progress);
+char* read_expression_from_file(const char* filename);
+size_t get_file_size(FILE* file);
+void skip_spaces(const char* buffer, size_t* pos);
 
-size_t get_file_size(FILE *file);
-node_type determine_node_type(const char* token);
-void skip_spaces(const char* buffer, size_t* position);
-char* read_token(char* buffer, size_t* position);
-node_t* read_node_from_buffer(tree_t* tree, char* buffer, size_t buffer_length, size_t* position,
-                              node_t* parent, int depth, load_progress* progress);
-tree_error_type tree_load(tree_t* tree, const char* filename);
-
-
-#endif //IO_DIFFERENCIATOR_H_
+#endif //IO_DIFF_H_

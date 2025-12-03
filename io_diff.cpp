@@ -1,6 +1,5 @@
 #include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -8,8 +7,87 @@
 #include "io_diff.h"
 #include "tree_base.h"
 #include "operations.h"
-#include "tree_common.h"
 
+char* read_expression_from_file(const char* filename)
+{
+    FILE* file = fopen(filename, "r");
+    if (!file)
+    {
+        printf("Error: cannot open file %s\n", filename);
+        return NULL;
+    }
+
+    size_t file_size = get_file_size(file);
+
+    if (file_size <= 0)
+    {
+        fclose(file);
+        return NULL;
+    }
+
+    char* expression = (char*)calloc(file_size + 2, sizeof(char)); // +2 для $ и \0
+    if (!expression)
+    {
+        fclose(file);
+        return NULL;
+    }
+
+    size_t bytes_read = fread(expression, 1, file_size, file);
+    expression[bytes_read] = '\0';
+    fclose(file);
+
+    if (bytes_read > 0)
+    {
+        if (expression[bytes_read - 1] == '\n')
+        {
+            expression[bytes_read - 1] = '$';
+            expression[bytes_read] = '\0';
+        }
+        else
+        {
+            expression[bytes_read] = '$';
+            expression[bytes_read + 1] = '\0';
+        }
+    }
+    else
+    {
+        expression[0] = '$';
+        expression[1] = '\0';
+    }
+
+    return expression;
+}
+
+
+size_t get_file_size(FILE *file)
+{
+    assert(file != NULL);
+
+    struct stat stat_buffer = {};
+
+    int file_descriptor = fileno(file);
+    if (file_descriptor == -1)
+    {
+        fprintf(stderr, "Error: Cannot get file descriptor\n");
+        return 0;
+    }
+
+    if (fstat(file_descriptor, &stat_buffer) != 0)
+    {
+        fprintf(stderr, "Error: Cannot get file stats\n");
+        return 0;
+    }
+
+    return (size_t)stat_buffer.st_size;
+}
+
+
+void skip_spaces(const char* buffer, size_t* pos) 
+{
+    while (isspace(buffer[*pos]))
+        (*pos)++;
+}
+/*
 
 void init_load_progress(load_progress* progress)
 {
@@ -57,29 +135,6 @@ void free_load_progress(load_progress* progress)
     progress -> capacity = 0;
     progress -> current_depth = 0;
 
-}
-
-
-size_t get_file_size(FILE *file)
-{
-    assert(file != NULL);
-
-    struct stat stat_buffer = {};
-
-    int file_descriptor = fileno(file);
-    if (file_descriptor == -1)
-    {
-        fprintf(stderr, "Error: Cannot get file descriptor\n");
-        return 0;
-    }
-
-    if (fstat(file_descriptor, &stat_buffer) != 0)
-    {
-        fprintf(stderr, "Error: Cannot get file stats\n");
-        return 0;
-    }
-
-    return (size_t)stat_buffer.st_size;
 }
 
 
@@ -146,8 +201,8 @@ node_t* read_node_from_buffer(tree_t* tree, char* buffer, size_t buffer_length, 
                               node_t* parent, int depth, load_progress* progress)
 {
 
-    assert(tree != NULL);
-    assert(buffer != NULL);
+    assert(tree     != NULL);
+    assert(buffer   != NULL);
     assert(position != NULL);
     assert(progress != NULL);
 
@@ -261,6 +316,8 @@ tree_error_type tree_load(tree_t* tree, const char* filename)
     free_load_progress(&progress);
     return TREE_ERROR_NO;
 }
+
+*/
 
 
 

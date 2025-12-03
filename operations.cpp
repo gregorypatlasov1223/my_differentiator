@@ -1,15 +1,20 @@
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 #include <stdarg.h>
-#include <string.h>
+#include "assert.h"
+
+#include "dump.h"
 #include "tree_base.h"
-#include "latex_dump.h"
 #include "operations.h"
+#include "latex_dump.h"
 #include "tree_common.h"
 #include "variable_parse.h"
 #include "logic_functions.h"
 #include "tree_error_types.h"
+
+
 
 
 
@@ -45,7 +50,6 @@ static node_t* differentiate_power_var_const(node_t* u, node_t* v, node_t* du_dx
 static node_t* differentiate_power_const_var(node_t* u, node_t* v, node_t* du_dx, node_t* dv_dx);
 static node_t* differentiate_power_var_var  (node_t* u, node_t* v, node_t* du_dx, node_t* dv_dx);
 static node_t* differentiate_node(node_t* node, const char* variable_name);
-static void  free_subtree(node_t* node);
 static void  free_nodes(int count, ...);
 static bool  contains_variable(node_t* node, const char* variable_name);
 static void  replace_node(node_t** node_ptr, node_t* new_node);
@@ -54,7 +58,7 @@ static void  replace_node(node_t** node_ptr, node_t* new_node);
 // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 
 
-static void free_subtree(node_t* node)
+void free_subtree(node_t* node)
 {
     if (node == NULL)
         return;
@@ -124,7 +128,7 @@ static tree_error_type evaluate_tree_recursive(node_t* node, variable_table* var
                     return TREE_ERROR_NULL_PTR;
 
                 if (node -> data.op_value != OP_SIN && node -> data.op_value != OP_COS &&
-                    node -> data.op_value != OP_LN &&  node -> data.op_value != OP_EXP)
+                    node -> data.op_value != OP_LN  && node -> data.op_value != OP_EXP)
                 {
                     if (node -> left == NULL)
                         return TREE_ERROR_NULL_PTR;
@@ -940,15 +944,15 @@ static tree_error_type constant_folding_optimization_with_dump(node_t** node, FI
                 }
             }
         }
-        else if ((*node)->left  != NULL && (*node)->left->type  == NODE_NUM &&
-                 (*node)->right != NULL && (*node)->right->type == NODE_NUM)
+        else if ((*node) -> left  != NULL && (*node) -> left -> type  == NODE_NUM &&
+                 (*node) -> right != NULL && (*node) -> right -> type == NODE_NUM)
         {
-            double left_val  = (*node)->left->data.num_value;
-            double right_val = (*node)->right->data.num_value;
+            double left_val  = (*node) -> left -> data.num_value;
+            double right_val = (*node) -> right -> data.num_value;
             double result = 0.0;
             bool can_fold = true;
 
-            switch ((*node)->data.op_value)
+            switch ((*node) -> data.op_value)
             {
                 case OP_ADD:
                     result = left_val + right_val;
@@ -1024,9 +1028,9 @@ static tree_error_type neutral_elements_optimization_with_dump(node_t** node, FI
         {
             case OP_ADD:
                 if ((*node) -> right != NULL && (*node) -> right -> type == NODE_NUM &&
-                    is_zero((*node)->right->data.num_value))
+                    is_zero((*node) -> right -> data.num_value))
                 {
-                    new_node = copy_node((*node)->left);
+                    new_node = copy_node((*node) -> left);
                     description = "adding zero simplified";
                 }
                 else if ((*node) -> left != NULL && (*node) -> left -> type == NODE_NUM &&
@@ -1174,7 +1178,7 @@ tree_error_type optimize_tree_with_dump(tree_t* tree, FILE* tex_file, variable_t
         fprintf(tex_file, "\\section*{Optimization}\n");
         fprintf(tex_file, "Before optimization: ");
 
-        char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {0};
+        char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
         int position = 0;
         tree_to_string_simple(tree -> root, expression, &position, sizeof(expression));
         fprintf(tex_file, "\\[ %s \\]\n\n", expression);
@@ -1194,7 +1198,7 @@ tree_error_type optimize_tree_with_dump(tree_t* tree, FILE* tex_file, variable_t
     {
         fprintf(tex_file, "\\subsection*{Result optimization}\n");
 
-        char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {0};
+        char expression[MAX_LENGTH_OF_TEX_EXPRESSION] = {};
         int position = 0;
         tree_to_string_simple(tree -> root, expression, &position, sizeof(expression));
         fprintf(tex_file, "Final expression: \\[ %s \\]\n\n", expression);

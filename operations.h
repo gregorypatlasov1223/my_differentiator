@@ -11,7 +11,7 @@ struct operator_mapping
     operation_type op_type;
 };
 
-
+void free_subtree(node_t* node);
 size_t count_tree_nodes(node_t* node);
 tree_error_type evaluate_tree(tree_t* tree, variable_table* var_table, double* result);
 tree_error_type differentiate_tree(tree_t* tree, const char* variable_name, tree_t* result_tree);

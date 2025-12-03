@@ -17,8 +17,11 @@
 #define ZERO_RANK 0
 
 const char* const DEFAULT_DATA_BASE_FILENAME = "differenciator_tree.txt";
+const char* const TEX_FILENAME               = "full_analysis.tex";
 const int MAX_LENGTH_OF_TEX_EXPRESSION       = 8192;
+const int MAX_CUSTOM_NOTATION_LENGTH         = 2048;
 const int MAX_TEX_DESCRIPTION_LENGTH         = 256;
+const int MAX_FUNC_NAME_LENGTH               = 256;
 const int MAX_NUMBER_OF_DERIVATIVE           = 4;
 
 
@@ -69,6 +72,7 @@ struct node_t
     node_t*               left;
     node_t*               right;
     node_t*               parent;
+    int                   priority;  // Приоритет операции (0 для чисел и переменных)
 };
 
 struct tree_t
